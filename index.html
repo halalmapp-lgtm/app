@@ -38,7 +38,33 @@
     token is replaced at build/deploy time (see CI / deploy runbook). For local
     dev, substitute your key via ./scripts/sync_secrets.sh (from secrets.local.env).
   -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvB-Jl1E_R3xsY_snaQI7LAJe_64JL4qE"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW1Ealt8M95qAwMxv3AY1Ib3qiH6WsLb4"></script>
+  <script>
+    // Flutter web does not expose clickableIcons; disable default POI info windows.
+    // Also default map chrome off so controls do not flash before the plugin applies options.
+    (function () {
+      var OriginalMap = google.maps.Map;
+      google.maps.Map = function (element, opts) {
+        opts = opts || {};
+        opts.clickableIcons = false;
+        if (opts.zoomControl === undefined) opts.zoomControl = false;
+        if (opts.mapTypeControl === undefined) opts.mapTypeControl = false;
+        if (opts.streetViewControl === undefined) opts.streetViewControl = false;
+        if (opts.fullscreenControl === undefined) opts.fullscreenControl = false;
+        if (opts.scaleControl === undefined) opts.scaleControl = false;
+        if (opts.rotateControl === undefined) opts.rotateControl = false;
+        return new OriginalMap(element, opts);
+      };
+      google.maps.Map.prototype = OriginalMap.prototype;
+      var setOptions = OriginalMap.prototype.setOptions;
+      if (setOptions) {
+        OriginalMap.prototype.setOptions = function (opts) {
+          if (opts) opts.clickableIcons = false;
+          return setOptions.call(this, opts);
+        };
+      }
+    })();
+  </script>
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
