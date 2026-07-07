@@ -3,12 +3,12 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "f02dea6d05f2f723fa011e73fdffae84",
+const RESOURCES = {"flutter_bootstrap.js": "ffa04e0fc693c83f487309596edf4c1d",
 "version.json": "cfdc9413ede4c9f790df45936e3be7ca",
 "index.html": "1583340db621432cda3a02e4c8bc5877",
 "/": "1583340db621432cda3a02e4c8bc5877",
 "vercel.json": "3ce034f37a6661efc8073a99b87d2c87",
-"main.dart.js": "6d55c03d17e6521d385c29a1bfe63f64",
+"main.dart.js": "6628e8d624148bdab9d2aa6f089d1f61",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "favicon.png": "3463d836d7dedf023e04415be011dd9c",
 "icons/Icon-192.png": "c0a7a7de2f63f87c862cc8a09f932c24",
@@ -108,7 +108,7 @@ const RESOURCES = {"flutter_bootstrap.js": "f02dea6d05f2f723fa011e73fdffae84",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/shaders/stretch_effect.frag": "40d68efbbf360632f614c731219e95f0",
 "assets/AssetManifest.bin": "e5860c4616df5ec4268a3f9c8fd59db2",
-"assets/fonts/MaterialIcons-Regular.otf": "3e4a9529c9e147efa2b4150254f38106",
+"assets/fonts/MaterialIcons-Regular.otf": "95feb5bceae5bbf0993d7612bd41e1fd",
 "assets/assets/map_style_light_streets.json": "83e844ce57c79142229d470287ffcdba",
 "assets/assets/halalmapp-logo.png": "e3a0df8408d82abdedeb6bbf0f11dd57",
 "assets/assets/map_style_dark_streets.json": "31f625568613690cc8e6e64926b0619b",
