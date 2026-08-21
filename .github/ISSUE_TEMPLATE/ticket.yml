@@ -1,0 +1,48 @@
+name: Ticket
+description: Task to assign to Mahad or a teammate
+title: "[Ticket] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        After you open this, assign it to the person who should own it.
+        Slack will ping the team when the ticket is created or assigned.
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: One line describing the work.
+      placeholder: Add Halal filter chips to the map search bar
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Low
+        - Medium
+        - High
+      default: 1
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What needs to happen, and how we will know it is done.
+      placeholder: |
+        Context
+        - …
+
+        Done when
+        - …
+    validations:
+      required: true
+  - type: input
+    id: assign_to
+    attributes:
+      label: Assign to
+      description: GitHub username of the owner (you can also use the Assignees field on the right).
+      placeholder: mahaad

@@ -1,0 +1,55 @@
+# Notify Slack when code changes or tickets are assigned.
+#
+# Setup (one-time):
+# 1. Create a Slack workspace and invite your teammate:
+#    https://slack.com/get-started#/createnew
+# 2. Create an Incoming Webhook for a channel (for example #dev):
+#    https://api.slack.com/messaging/webhooks
+# 3. Add the webhook URL as a GitHub Actions secret named SLACK_WEBHOOK_URL:
+#    https://github.com/halalmapp-lgtm/app/settings/secrets/actions
+# 4. Run this workflow with "Run workflow" to send a test ping.
+
+name: Slack notifications
+
+on:
+  push:
+    branches: [main]
+  issues:
+    types: [opened, closed, reopened, assigned, unassigned]
+  pull_request:
+    types:
+      - opened
+      - closed
+      - reopened
+      - ready_for_review
+      - review_requested
+      - assigned
+      - unassigned
+      - converted_to_draft
+  pull_request_review:
+    types: [submitted]
+  workflow_dispatch:
+
+concurrency:
+  group: slack-notify-${{ github.event_name }}-${{ github.event.number || github.sha }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/scripts
+
+      - name: Post to Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GITHUB_EVENT_ACTION: ${{ github.event.action }}
+        run: |
+          chmod +x .github/scripts/slack-notify.sh
+          .github/scripts/slack-notify.sh
