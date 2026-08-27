@@ -34182,6 +34182,7 @@ _.x=i
 _.y=j
 _.z=k
 _.Q=l},
+hmWl:function hmWl(){},
 bkO:function bkO(a){this.a=a},
 bkN:function bkN(){},
 bkL:function bkL(){},
@@ -124706,7 +124707,7 @@ K(a){var s,r,q,p,o,n,m,l,k,j,i=this,h=null
 if(i.y)return A.eo(A.IA(h,h,h,!0,!0,B.ax,h,1,h,h,h,!1,h,!1,B.r,h,h,h,!0,h,h,h,h,h,B.ua,h,h,h,1,h,!0),B.bA,B.d4,h,!1,!1,h)
 if(!i.x)return A.eo(A.IA(h,h,h,!0,!0,B.ax,h,1,h,h,h,!1,h,!1,B.r,h,h,h,!0,h,h,h,h,h,B.ua,h,h,h,1,h,!0),B.bA,A.ci(A.t("Access denied",h,h,h,h,A.a1().$3$color$fontSize$fontWeight(B.Y,20,B.M),h,h,h),h,h),h,!1,!1,h)
 s=t.p
-r=A.e([A.d5(h,h,h,B.yN,h,h,new A.bkO(a),h,h,h,"Preview Premium signup",h),A.d5(h,h,h,B.yZ,h,h,new A.bkP(a),h,h,h,"Design preview",h)],s)
+r=A.e([A.d5(h,h,h,B.yN,h,h,new A.hmWl(),h,h,h,"Waitlist",h),A.d5(h,h,h,B.yN,h,h,new A.bkO(a),h,h,h,"Preview Premium signup",h),A.d5(h,h,h,B.yZ,h,h,new A.bkP(a),h,h,h,"Design preview",h)],s)
 q=i.w
 q===$&&A.c()
 p=A.Uq("Pending ("+J.b8(i.z)+")")
@@ -125207,6 +125208,9 @@ r.cy=s.y
 r.CW=s.z
 r.cx=s.Q
 r.y=!1},
+$S:1}
+A.hmWl.prototype={
+$0(){try{if(window.HalalMappAdminWaitlist)window.HalalMappAdminWaitlist.open()}catch(s){}},
 $S:1}
 A.bkO.prototype={
 $0(){var s=A.cM(new A.bkN(),null,t.H)
