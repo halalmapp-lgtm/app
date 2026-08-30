@@ -38,7 +38,30 @@
       margin: 0;
       background-color: #0B1F3A;
     }
+    /* App Store manual capture: lock to 6.5" logical frame (428×926 → 1284×2778 @3×). */
+    html.appstore-capture,
+    html.appstore-capture body {
+      width: 428px;
+      height: 926px;
+      max-width: 428px;
+      max-height: 926px;
+      overflow: hidden;
+    }
+    html.appstore-capture {
+      margin: 0 auto;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+    html.appstore-capture body {
+      position: relative;
+    }
   </style>
+  <script>
+    (function () {
+      if (/[?&]appstore-capture=1(?:&|$)/.test(location.search)) {
+        document.documentElement.classList.add('appstore-capture');
+      }
+    })();
+  </script>
 
   <!--
     Google Maps web keys are HTTP-referrer restricted. 127.0.0.1 is usually NOT
