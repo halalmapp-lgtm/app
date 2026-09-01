@@ -124816,11 +124816,10 @@ gbfT(){switch(this.a){case 0:return"Get found on the map"
 case 1:return"Bring customers in with coupons"
 case 2:return"Grow with premium promotion"
 case 3:return"Custom plan for growing chains"}},
-gbdZ(){var s="Monthly or yearly"
-switch(this.a){case 0:return"$0 \u2014 always free"
-case 1:return s
-case 2:return s
-case 3:return"Custom pricing"}},
+gbdZ(){switch(this.a){case 0:return"$0 \u2014 always free"
+case 1:return"$49/mo \xb7 $490/yr"
+case 2:return"$99/mo \xb7 $990/yr"
+case 3:return"Custom \u2014 from $99"}},
 gBY(){switch(this.a){case 0:return 10
 case 1:return 30
 case 2:return 100
@@ -124834,7 +124833,7 @@ case 1:return 1
 case 2:return 4
 case 3:return 12}},
 ga_K(){switch(this.a){case 0:return 1
-case 1:return 3
+case 1:return 1
 case 2:return 3
 case 3:return 4}},
 b6S(a){if(this===B.cA&&a!=null&&a>=this.ga_K())return a
@@ -135020,7 +135019,21 @@ m=n.w
 l=m==null
 k=n.z
 d.push(A.ak(i,A.ad(A.d([A.as(A.d([B.a0s,B.cJ,A.aG(A.t(o,i,i,i,i,l?i:m.eH(B.L),i,i,i),1)],e),B.w,B.k,B.n,0,i),B.Q,A.t(j.gaYY(),i,i,i,i,k,i,i,i)],e),B.K,B.k,B.n,0,B.z),B.t,i,i,new A.al(r,i,p,q,s,i,i,B.D),i,i,i,B.at,i,i,i))
-d.push(B.fy)
+p=j.goc()
+if(j.a.d)o=i
+else{$.cn()
+o=$.aO().a
+o===$&&A.c()
+o=o.gac().c
+o=o==null?i:o.r
+o=o==null?i:o.z}if(!A.aa5(p)){r=A.a3d(p)
+if(r!=="active"&&r!=="trialing"){r=g.a===B.W
+s=r?B.ag.M(0.16):B.lS
+q=A.X(12)
+p=A.bI(B.ag.M(r?0.45:0.35),1)
+o=A.aQ(B.yD,r?B.pl:B.eC,i,i,20)
+d.push(B.eY)
+d.push(A.ak(i,A.ad(A.d([A.as(A.d([o,B.aV,A.aG(A.t("Launch pilot: 3 months of Pro free",i,i,i,i,l?i:n.x.eH(B.ao),i,i,i),1)],e),B.w,B.k,B.n,0,i),B.a_,A.t("Tap Pro below, then check \u201cStart with the founding 3-month free trial\u201d on checkout. $0 for 90 days \u2014 cancel anytime before billing starts.",i,i,i,i,k,i,i,i)],e),B.K,B.k,B.n,0,B.z),B.t,i,i,new A.al(s,i,p,q,i,i,i,B.D),i,i,i,B.c0,i,i,i))}}d.push(B.fy)
 d.push(A.t("Change plan",i,i,i,i,l?i:m.eH(B.L),i,i,i))
 d.push(B.bU)
 e=k==null
@@ -137389,8 +137402,8 @@ a0=a3.f?a4:new A.bJF(a3)
 B.c.E(k,A.d([B.eY,A.ak(a4,A.ad(A.d([g,B.a_,b,A.cS(!1,B.Z,!0,a4,A.a1o(a4,B.an,a4,a0,a4,A.t("Start with the founding 3-month free trial",a4,a4,a4,a4,h?a4:i.eH(B.L),a4,a4,a4),a),B.t,B.Y,0,a4,a4,a4,a4,a4,B.aS)],o),B.K,B.k,B.n,0,B.z),B.t,a4,a4,new A.al(e,a4,c,d,a4,a4,a4,B.D),a4,a4,a4,B.c0,a4,a4,a4)],o))}g=a3.x
 if(g===B.fS||g===B.eu){g=j.w
 g=A.t("Billing interval",a4,a4,a4,a4,g==null?a4:g.eH(B.L),a4,a4,a4)
-e=a3.acY(a6,B.lk,a3.w?"After trial \xb7 Billed monthly after trial":"Billed monthly after trial",a5)
-B.c.E(k,A.d([B.bk,g,B.a_,e,B.a_,a3.acY(a6,B.vJ,a3.w?"After trial \xb7 Billed yearly after trial":"Billed yearly after trial",a5)],o))}k.push(B.bk)
+e=a3.acY(a6,B.lk,a3.w?"After trial \xb7 "+(a3.x===B.eu?"$99/mo":"$49/mo"):a3.x===B.eu?"$99/mo":"$49/mo",a5)
+B.c.E(k,A.d([B.bk,g,B.a_,e,B.a_,a3.acY(a6,B.vJ,a3.w?"After trial \xb7 "+(a3.x===B.eu?"$990/yr":"$490/yr"):a3.x===B.eu?"$990/yr":"$490/yr",a5)],o))}k.push(B.bk)
 g=j.w
 e=g==null
 k.push(A.t("Compare plans",a4,a4,a4,a4,e?a4:g.eH(B.L),a4,a4,a4))
@@ -137410,7 +137423,7 @@ if(b)b=B.aL
 else{b=a6.ry
 if(b==null){b=a6.t
 if(b==null)b=a6.k3}b=b.M(0.35)}b=A.bI(b,1)
-d=A.ak(a4,A.bSL(A.IZ(A.t('BUSINESS SUBSCRIPTION AGREEMENT\nVersion business_subscription_v1\n\nThis Agreement is between HalalMapp and the business owner or authorized representative who accepts it. By selecting a paid tier (Pro, Advanced, or Enterprise) and continuing, you enter a binding contract for that tier.\n\n1. TIERS\n\u2022 Free: listing tools only \u2014 map presence, menu, hours, details, and up to 10 photos. No billing. One location.\n\u2022 Pro: paid month-to-month or yearly. Adds coupons (up to 3 live at a time), 30 photos, coupon designer, core reports, and up to 3 locations.\n\u2022 Advanced: paid month-to-month or yearly. Adds more coupons (up to 10 live), scheduling, 100 photos, premium reports and export, featured placement, and up to 3 locations.\n\u2022 Enterprise: for chains with 4 or more locations. Pricing scales with your number of locations and is set with our team; an authorized HalalMapp admin activates your subscription and your custom location limit after a quote request. Enterprise is not purchased through in-app checkout.\n\nAdvertised limits may change with notice. Prices for self-serve tiers are shown at checkout (Stripe on web; App Store / Google Play on mobile); Enterprise pricing is provided in your quote. Your tier, billing interval, any founding offer, and (for Enterprise) your assigned location limit are recorded with your acceptance.\n\n2. THREE-MONTH FREE TRIAL (FOUNDING)\nEligible early restaurants who add the Founding trial receive 90 days of their selected paid tier at no charge, then a lifetime discount on that tier when paid billing begins. A payment method is required so billing can start after the trial unless you cancel first. One founding trial per business account.\n\n3. AUTOMATIC RENEWAL\nUnless you cancel before the trial or paid period ends, your subscription renews automatically on the selected cadence, and you authorize HalalMapp and its payment processors to charge the then-current (or discounted founding) plan price.\n\n4. CANCEL ANYTIME\nYou may cancel anytime from Manage subscription in the app. Paid access continues until the end of the current trial or paid period, then reverts to the free listing tier. No prorated refunds unless required by law or store policy.\n\n5. ACCEPTANCE LOCKS YOU IN\nChecking "I agree" confirms you have read this Agreement, are authorized to bind the Business, and accept the selected tier, trial (if any), renewal, and cancellation terms. HalalMapp records your acceptance (timestamp, tier/plan, and version). You cannot alter that record. Paid billing cannot start without this acceptance.\n\n6. PAID FEATURES\nPaid tiers may include deals and coupons, reports, coupon design, promotional placement, multi-location management, and related tools, subject to the limits of the tier you select (or, for Enterprise, the limits agreed in your quote). Business verification remains separate and may be required before some features activate.\n\nFull agreement: see the Business Subscription Agreement page linked in the app.\n',a4,a4,a4,a4,e?a4:d.wj(1.45),a4,a4,a4),a4,B.M,a4,a4,a4,B.a8),a4,a4),B.t,a4,B.Pc,new A.al(a,a4,b,a0,a4,a4,a4,B.D),a4,a4,a4,B.c0,a4,a4,a4)
+d=A.ak(a4,A.bSL(A.IZ(A.t('BUSINESS SUBSCRIPTION AGREEMENT\nVersion business_subscription_v1\n\nThis Agreement is between HalalMapp and the business owner or authorized representative who accepts it. By selecting a paid tier (Pro, Advanced, or Enterprise) and continuing, you enter a binding contract for that tier.\n\n1. TIERS\n\u2022 Free: listing tools only \u2014 map presence, menu, hours, details, and up to 10 photos. No billing. One location.\n\u2022 Pro: paid month-to-month or yearly. Adds coupons (up to 3 live at a time), 30 photos, coupon designer, core reports, and one location.\n\u2022 Advanced: paid month-to-month or yearly. Adds more coupons (up to 10 live), scheduling, 100 photos, premium reports and export, featured placement, and up to 3 locations.\n\u2022 Enterprise: for chains with 4 or more locations. Pricing scales with your number of locations and is set with our team; an authorized HalalMapp admin activates your subscription and your custom location limit after a quote request. Enterprise is not purchased through in-app checkout.\n\nAdvertised limits may change with notice. Prices for self-serve tiers are shown at checkout (Stripe on web; App Store / Google Play on mobile); Enterprise pricing is provided in your quote. Your tier, billing interval, any founding offer, and (for Enterprise) your assigned location limit are recorded with your acceptance.\n\n2. THREE-MONTH FREE TRIAL (FOUNDING)\nEligible early restaurants who add the Founding trial receive 90 days of their selected paid tier at no charge, then a lifetime discount on that tier when paid billing begins. A payment method is required so billing can start after the trial unless you cancel first. One founding trial per business account.\n\n3. AUTOMATIC RENEWAL\nUnless you cancel before the trial or paid period ends, your subscription renews automatically on the selected cadence, and you authorize HalalMapp and its payment processors to charge the then-current (or discounted founding) plan price.\n\n4. CANCEL ANYTIME\nYou may cancel anytime from Manage subscription in the app. Paid access continues until the end of the current trial or paid period, then reverts to the free listing tier. No prorated refunds unless required by law or store policy.\n\n5. ACCEPTANCE LOCKS YOU IN\nChecking "I agree" confirms you have read this Agreement, are authorized to bind the Business, and accept the selected tier, trial (if any), renewal, and cancellation terms. HalalMapp records your acceptance (timestamp, tier/plan, and version). You cannot alter that record. Paid billing cannot start without this acceptance.\n\n6. PAID FEATURES\nPaid tiers may include deals and coupons, reports, coupon design, promotional placement, multi-location management, and related tools, subject to the limits of the tier you select (or, for Enterprise, the limits agreed in your quote). Business verification remains separate and may be required before some features activate.\n\nFull agreement: see the Business Subscription Agreement page linked in the app.\n',a4,a4,a4,a4,e?a4:d.wj(1.45),a4,a4,a4),a4,B.M,a4,a4,a4,B.a8),a4,a4),B.t,a4,B.Pc,new A.al(a,a4,b,a0,a4,a4,a4,B.D),a4,a4,a4,B.c0,a4,a4,a4)
 b=A.Pn(B.z2,B.asF,a3.gaSY(),a4)
 a=a3.r
 e=a3.f?a4:new A.bJG(a3)
@@ -210492,9 +210505,10 @@ B.aee=new A.ec("Coupon designer with standard templates",!0)
 B.aes=new A.ec("Reports: saves, claims, redemptions, top and weakest coupons",!0)
 B.aea=new A.ec("90 days of reporting history",!0)
 B.ael=new A.ec("1 push notification a month to customers who saved you",!0)
+B.aJz=new A.ec("1 location on one account",!0)
 B.Ji=new A.ec("Up to 3 locations on one account",!0)
 B.aer=new A.ec("Email support",!0)
-B.a50=s([B.aed,B.ae1,B.aef,B.aee,B.aes,B.aea,B.ael,B.Ji,B.aer],t.Cr)
+B.a50=s([B.aed,B.ae1,B.aef,B.aee,B.aes,B.aea,B.ael,B.aJz,B.aer],t.Cr)
 B.agD=new A.R8("wheelchair_accessible","Wheelchair accessible")
 B.af5=new A.R8("prayer_space","Prayer space")
 B.ah_=new A.R8("family_seating","Family seating")
