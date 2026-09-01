@@ -43750,13 +43750,32 @@ return s},
 bU6(a){var s,r=a==null?null:J.O(a,"trial_ends_at")
 if(typeof r=="string"&&r.length!==0){s=A.Qh(r)
 return s==null?null:s.Kc()}return null},
-a3w(a){var s,r
+caq0(a){var s,r=A.bU6(a)
+if(r==null)return null
+s=B.n.bS(r.dW(new A.aX(Date.now(),0,!1)).a,864e8)
+return s<0?0:s},
+caq1(a){var s=A.caq0(a)
+if(s==null)return"Launch pilot trial active"
+if(s===0)return"Launch pilot ends today"
+if(s===1)return"Launch pilot \xb7 1 day left"
+return"Launch pilot \xb7 "+s+" days left"},
+caq2(a){var s=A.caq0(a)
+if(s==null)return"Your founding 3-month free trial is active. $0 until billing starts \u2014 cancel anytime before then."
+if(s===0)return"Free period ends today. Paid billing begins after unless you cancel first."
+if(s===1)return"1 day left on your launch pilot. $0 until billing starts \u2014 cancel anytime before then."
+return s+" days left on your launch pilot. $0 until billing starts \u2014 cancel anytime before then."},
+caq3(a){var s=A.caq0(a)
+if(s==null)return""
+if(s===0)return"Your launch pilot free period ends today. "
+if(s===1)return"1 day left in your launch pilot free period. "
+return s+" days left in your launch pilot free period. "},
+a3w(a){var s,r,q
 if(A.a3y(a)==="trialing")return!0
 s=A.bU6(a)
-if(s==null)return!1
-if(s.i6(new A.aX(Date.now(),0,!1)))r=A.a3y(a)==="active"||A.a3y(a)==="trialing"
-else r=!1
-return r},
+if(s!=null){if(s.i6(new A.aX(Date.now(),0,!1))){r=A.a3y(a)
+if(r==="active"||r==="trialing")return!0}}q=A.a5(a==null?null:J.O(a,"subscription_offer"))
+if(q==="early_trial"){r=A.a3y(a)
+if(r==="active"||r==="trialing")return!0}return!1},
 NY(a,b){var s,r=A.a5(a==null?null:J.O(a,"email")),q=(r==null?null:r.length!==0)===!0?r:b,p=B.d.a_(q==null?"":q).toLowerCase(),o=p.length===0?null:p
 if(o!=null&&B.L9.n(0,o)&&A.ar_(a)&&!A.P_(a))return!0
 if(!A.Lu(a)||A.P_(a))return!1
@@ -136983,7 +137002,11 @@ n===$&&A.c()
 n=n!==A.a3x(p.geQ())}else n=s}else n=!0}else n=s
 return n},
 gb_O(){var s,r,q=this
-if(A.a3w(q.geQ()))return"TRIAL ACTIVE"
+if(A.a3w(q.geQ())){s=A.caq0(q.geQ())
+if(s==null)return"LAUNCH PILOT"
+if(s===0)return"ENDS TODAY"
+if(s===1)return"1 DAY LEFT"
+return s+" DAYS LEFT"}
 s=q.geQ()
 if(q.a.d)r=null
 else{$.c5()
@@ -137002,7 +137025,11 @@ r=$.aJ().a
 r===$&&A.c()
 r=r.gab().c
 r=r==null?p:r.r
-r=r==null?p:r.z}return A.I9(s,r).gds(0)+" \xb7 Founding trial"}s=q.geQ()
+r=r==null?p:r.z}s=A.I9(s,r).gds(0)+" \xb7 Launch pilot"
+r=A.caq0(q.geQ())
+if(r!=null){if(r===0)s+=" \xb7 ends today"
+else if(r===1)s+=" \xb7 1 day left"
+else s+=" \xb7 "+r+" days left"}return s}s=q.geQ()
 if(q.a.d)r=p
 else{$.c5()
 r=$.aJ().a
@@ -137022,7 +137049,7 @@ gb_S(){var s,r,q,p,o=this,n=null,m=o.geQ(),l=A.a3x(m),k=l==null?n:l.gds(0)
 if(k==null)k="Not selected"
 if(A.a3w(o.geQ())){s=A.bU6(m)
 r=s==null?"the end of your trial":""+A.bQ(s)+"-"+B.d.ea(B.n.j(A.c3(s)),2,"0")+"-"+B.d.ea(B.n.j(A.dA(s)),2,"0")
-return"Your founding 3-month trial is active ("+k+" billing). Paid billing begins after "+r+" unless you cancel first. You can switch plans or billing interval below anytime."}q=o.geQ()
+return A.caq3(m)+"Your founding 3-month trial is active ("+k+" billing). Paid billing begins after "+r+" unless you cancel first. You can switch plans or billing interval below anytime."}q=o.geQ()
 if(o.a.d)p=n
 else{$.c5()
 p=$.aJ().a
@@ -137235,7 +137262,19 @@ if(n.a.d){s=B.bW.L(0.1)
 r=A.W(12)
 q=A.bw(B.bW.L(0.35),1)
 f.push(A.ag(m,A.q("Admin preview \u2014 sample data only. No billing requests are made from this screen.",m,m,m,m,l.ok.z,m,m,m),B.q,m,m,new A.af(s,m,q,r,m,m,m,B.C),m,m,B.mu,B.bX,m,m,m))}f.push(new A.aAi(n.gb_T(),n.gb_S(),n.gb_O(),m))
-f.push(B.fJ)
+r=n.geQ()
+if(A.a3w(r)){s=k.a===B.X
+q=s?B.ad.L(0.16):B.m4
+o=A.W(12)
+p=A.bw(B.ad.L(s?0.45:0.35),1)
+f.push(B.d4)
+f.push(A.ag(m,A.a8(A.d([A.aq(A.d([A.aO(B.yT,s?B.dm:B.ed,m,m,m),B.aR,A.aD(A.q(A.caq1(r),m,m,m,m,l.ok.x==null?m:l.ok.x.dO(B.ae),m,m,m),1)],g),B.v,B.k,B.l,0,m),B.a_,A.q(A.caq2(r),m,m,m,m,l.ok.z,m,m,m)],g),B.I,B.k,B.l,0,B.x),B.q,m,m,new A.af(q,m,p,o,m,m,m,B.C),m,m,m,B.bY,m,m,m))}else{s=A.a3y(r)
+if(s!=="active"&&s!=="trialing"){s=k.a===B.X
+q=s?B.ad.L(0.16):B.m4
+o=A.W(12)
+p=A.bw(B.ad.L(s?0.45:0.35),1)
+f.push(B.d4)
+f.push(A.ag(m,A.a8(A.d([A.aq(A.d([A.aO(B.yT,s?B.dm:B.ed,m,m,m),B.aR,A.aD(A.q("Launch pilot: 3 months of Pro free",m,m,m,m,l.ok.x==null?m:l.ok.x.dO(B.ae),m,m,m),1)],g),B.v,B.k,B.l,0,m),B.a_,A.q("Select Pro below and check \u201cStart with the founding 3-month free trial\u201d on checkout. $0 for 90 days \u2014 cancel anytime before billing starts.",m,m,m,m,l.ok.z,m,m,m)],g),B.I,B.k,B.l,0,B.x),B.q,m,m,new A.af(q,m,p,o,m,m,m,B.C),m,m,m,B.bY,m,m,m))}}f.push(B.fJ)
 s=l.ok
 r=s.w
 f.push(A.q("Plans",m,m,m,m,r==null?m:r.dO(B.ae),m,m,m))
