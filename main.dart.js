@@ -43793,11 +43793,11 @@ cdI(a){var s,r
 if(a==null)return""
 for(s=0;s<4;++s){r=B.Ad[s]
 if(r.b===a)return r.a}return a},
-cdL(a){switch(a.a){case 1:return"$40"
-case 2:return"$80"
+cdL(a){switch(a.a){case 1:return"$49.99"
+case 2:return"$99.99"
 default:return""}},
-cdM(a){switch(a.a){case 1:return"$400"
-case 2:return"$800"
+cdM(a){switch(a.a){case 1:return"$499"
+case 2:return"$900"
 default:return""}},
 c_p(a,b){var s,r
 switch(a.a){case 0:return"$0"
@@ -43812,15 +43812,15 @@ r=b===B.dl?"Billed monthly after trial":"Billed yearly after trial"
 if(c)return"After trial \xb7 "+s
 return s+" \xb7 "+r},
 cdJ(a){switch(a.a){case 0:return"$0"
-case 1:return"$40/mo"
-case 2:return"$80/mo"
+case 1:return"$49.99/mo"
+case 2:return"$99.99/mo"
 case 3:return"Custom"}},
-c_o(a){switch(a.a){case 1:return"$400/yr"
-case 2:return"$800/yr"
+c_o(a){switch(a.a){case 1:return"$499/yr"
+case 2:return"$900/yr"
 default:return null}},
 cdK(a){switch(a.a){case 0:return"$0 \u2014 always free"
-case 1:return"$40/mo \xb7 $400/yr"
-case 2:return"$80/mo \xb7 $800/yr"
+case 1:return"$49.99/mo \xb7 $499/yr"
+case 2:return"$99.99/mo \xb7 $900/yr"
 case 3:return"Custom pricing"}},
 ar1(a){return J.h(a==null?null:J.O(a,"account_type"),"business")},
 Ki(a){var s=A.a5(a==null?null:J.O(a,"business_status"))
