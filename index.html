@@ -112,34 +112,22 @@
       document.body.appendChild(banner);
     };
 
-    // Flutter web does not expose clickableIcons; disable default POI info windows.
-    // Do NOT force renderingType — forcing RASTER can break tiles ("Oops! Something went wrong").
-    // Also default map chrome off so controls do not flash before the plugin applies options.
+    // Do not replace google.maps.Map with a plain function. Dart JS interop
+    // (package:google_maps) constructs it with `new google.maps.Map(...)`; a
+    // wrapper that returns a different object leaves a dummy instance, init
+    // throws, and HomeScreen paints a blank scaffold.
+    // Flutter already passes zoom/mapType/streetView/fullscreen off in the
+    // initial MapOptions. Only clickableIcons is missing from the Flutter API.
     (function () {
       if (typeof google === 'undefined' || !google.maps || !google.maps.Map) return;
-      var OriginalMap = google.maps.Map;
-      function withSafeDefaults(opts) {
-        opts = opts || {};
-        opts.clickableIcons = false;
-        if (opts.zoomControl === undefined) opts.zoomControl = false;
-        if (opts.mapTypeControl === undefined) opts.mapTypeControl = false;
-        if (opts.streetViewControl === undefined) opts.streetViewControl = false;
-        if (opts.fullscreenControl === undefined) opts.fullscreenControl = false;
-        if (opts.scaleControl === undefined) opts.scaleControl = false;
-        if (opts.rotateControl === undefined) opts.rotateControl = false;
-        return opts;
-      }
-      google.maps.Map = function (element, opts) {
-        return new OriginalMap(element, withSafeDefaults(opts));
+      var proto = google.maps.Map.prototype;
+      var setOptions = proto.setOptions;
+      if (!setOptions || setOptions.__halalPatched) return;
+      proto.setOptions = function (opts) {
+        if (opts) opts.clickableIcons = false;
+        return setOptions.call(this, opts);
       };
-      google.maps.Map.prototype = OriginalMap.prototype;
-      var setOptions = OriginalMap.prototype.setOptions;
-      if (setOptions) {
-        OriginalMap.prototype.setOptions = function (opts) {
-          if (opts) opts.clickableIcons = false;
-          return setOptions.call(this, opts);
-        };
-      }
+      proto.setOptions.__halalPatched = true;
     })();
   </script>
 </head>
